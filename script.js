@@ -27,3 +27,5 @@ for (let i = 0; i < dimension ** 2; i++) {
         box[i].style.backgroundColor = 'green';
     })
 }
+
+
