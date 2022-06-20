@@ -1,5 +1,5 @@
 
-let dimension = 8;
+let dimension = 10;
 
 function makeGrid(dimension) {
     const container = document.querySelector('.container');
@@ -7,6 +7,8 @@ function makeGrid(dimension) {
     for (let i = 0; i < dimension * dimension; i++) {
         const div = document.createElement('div');
         div.textContent = `${i}`;
+        div.style.border = 'solid';
+        div.classList.add('hoverbox')
         container.appendChild(div)
     }
 
@@ -20,7 +22,7 @@ function makeGrid(dimension) {
 makeGrid(dimension)
 
 let box = document.querySelectorAll('.hoverbox');
-console.log(box[0])
+console.log(box)
 
 for (let i = 0; i < dimension ** 2; i++) {
     box[i].addEventListener('mouseenter', () => {
