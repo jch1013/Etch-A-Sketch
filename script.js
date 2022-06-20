@@ -18,3 +18,12 @@ function makeGrid(dimension) {
 }
 
 makeGrid(dimension)
+
+let box = document.querySelectorAll('.hoverbox');
+console.log(box[0])
+
+for (let i = 0; i < dimension ** 2; i++) {
+    box[i].addEventListener('mouseenter', () => {
+        box[i].style.backgroundColor = 'green';
+    })
+}
