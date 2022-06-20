@@ -1,8 +1,8 @@
 
-let dimension = 10;
+let dimension = 6;
 
+const container = document.querySelector('.container');
 function makeGrid(dimension) {
-    const container = document.querySelector('.container');
     let gridWidth = ""
     for (let i = 0; i < dimension * dimension; i++) {
         const div = document.createElement('div');
@@ -21,13 +21,27 @@ function makeGrid(dimension) {
 
 makeGrid(dimension)
 
-let box = document.querySelectorAll('.hoverbox');
-console.log(box)
 
+let box = document.querySelectorAll('.hoverbox');
 for (let i = 0; i < dimension ** 2; i++) {
     box[i].addEventListener('mouseenter', () => {
         box[i].style.backgroundColor = 'green';
-    })
-}
+    });
+};
+
+let eraseButton = document.querySelector('#erase');
+eraseButton.addEventListener('click', () => {
+    for (let i = 0; i < dimension ** 2; i++) {
+        box[i].style.backgroundColor = 'white';
+    }
+});
+
+let changeGrid = document.querySelector('#change-grid');
+changeGrid.addEventListener('click', () => {
+    dimension = prompt("Enter a new dimension: ")
+    //container.classList.remove('.hoverbox')
+    makeGrid(dimension);
+
+})
 
 

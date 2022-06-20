@@ -1,6 +1,15 @@
 .container {
-    height: 500px;
+    height: 1000px;
     width: 1000px;
     display: grid;
     
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+
 }
