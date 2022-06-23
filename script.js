@@ -2,24 +2,26 @@
 let dimension = 6;
 
 const container = document.querySelector('.container');
-function makeGrid(dimension) {
-    let gridWidth = ""
+function makeGrid(dimension=5) {
+    let gridWidth = "";
     for (let i = 0; i < dimension * dimension; i++) {
         const div = document.createElement('div');
         div.textContent = `${i}`;
         div.style.border = 'solid';
-        div.classList.add('hoverbox')
-        container.appendChild(div)
+        div.classList.add('hoverbox');
+        div.setAttribute('id', 'hoverbox');
+        container.appendChild(div);
     }
 
     for (let i = 0; i < dimension; i++) {
-        gridWidth += 'auto '
+        gridWidth += 'auto ';
     }
-    console.log(gridWidth)
+    console.log(gridWidth);
     container.style.gridTemplateColumns = gridWidth;
 }
 
-makeGrid(dimension)
+
+makeGrid(dimension);
 
 
 let box = document.querySelectorAll('.hoverbox');
@@ -38,10 +40,16 @@ eraseButton.addEventListener('click', () => {
 
 let changeGrid = document.querySelector('#change-grid');
 changeGrid.addEventListener('click', () => {
-    dimension = prompt("Enter a new dimension: ")
-    //container.classList.remove('.hoverbox')
+    const content = document.getElementById('containerID')
+    while (content.firstChild) {
+        content.removeChild(content.lastChild);
+    }
+    dimension = prompt("Enter a new dimension: ");
     makeGrid(dimension);
 
+    console.log(content);
+
 })
+
 
 
