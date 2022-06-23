@@ -6,7 +6,6 @@ function makeGrid(dimension=5) {
     let gridWidth = "";
     for (let i = 0; i < dimension * dimension; i++) {
         const div = document.createElement('div');
-        div.textContent = `${i}`;
         div.style.border = 'solid';
         div.classList.add('hoverbox');
         div.setAttribute('id', 'hoverbox');
@@ -22,14 +21,17 @@ function makeGrid(dimension=5) {
 
 
 makeGrid(dimension);
+eventListen(dimension);
 
-
-let box = document.querySelectorAll('.hoverbox');
-for (let i = 0; i < dimension ** 2; i++) {
-    box[i].addEventListener('mouseenter', () => {
-        box[i].style.backgroundColor = 'green';
+function eventListen(dimension) {
+    let box = document.querySelectorAll('.hoverbox');
+    for (let i = 0; i < dimension ** 2; i++) {
+        box[i].addEventListener('mouseenter', () => {
+            box[i].style.backgroundColor = 'green';
     });
 };
+}
+
 
 let eraseButton = document.querySelector('#erase');
 eraseButton.addEventListener('click', () => {
@@ -46,8 +48,7 @@ changeGrid.addEventListener('click', () => {
     }
     dimension = prompt("Enter a new dimension: ");
     makeGrid(dimension);
-
-    console.log(content);
+    eventListen(dimension);
 
 })
 
