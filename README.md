@@ -1,2 +1,2 @@
 # Etch-A-Sketch
-Simple Etch-a-sketch project
+The purpose of this project was to practice key concepts of JavaScript, such as adding event listeners. This project uses a grid of div elemenets to create a functional etch-a-sketch program.
